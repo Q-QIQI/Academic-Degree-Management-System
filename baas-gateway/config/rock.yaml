@@ -1,0 +1,65 @@
+version: 1.0.0
+client:
+  organization: Org2
+  logging:
+    level: info
+  cryptoconfig:
+    path: ./config/crypto-config
+
+channels:
+  mychannelone:
+    peers:
+      peer0.org1.example.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      peer0.org2.example.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      peer0.org5.example.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+organizations:
+  Org1:
+    mspid: Org1MSP
+    cryptoPath: peerOrganizations/org1.example.com/users/{username}@org1.example.com/msp
+    peers:
+      - peer0.org1.example.com
+  Org2:
+    mspid: Org2MSP
+    cryptoPath: peerOrganizations/org2.example.com/users/{username}@org2.example.com/msp
+    peers:
+      - peer0.org2.example.com
+  Org5:
+    mspid: Org5MSP
+    cryptoPath: peerOrganizations/org5.example.com/users/{username}@org5.example.com/msp
+    peers:
+      - peer0.org5.example.com
+
+orderers:
+  orderer0.example.com:
+    url: orderer0.example.com:7050
+    tlsCACerts:
+      path: ./config/crypto-config/ordererOrganizations/example.com/tlsca/tlsca.example.com-cert.pem
+      
+peers:
+  peer0.org1.example.com:
+    url: peer0.org1.example.com:7051
+    tlsCACerts:
+      path: ./config/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
+  peer0.org2.example.com:
+    url: peer0.org2.example.com:8051
+    tlsCACerts:
+      path: ./config/crypto-config/peerOrganizations/org2.example.com/tlsca/tlsca.org2.example.com-cert.pem
+  peer0.org5.example.com:
+    url: peer0.org5.example.com:11051
+    tlsCACerts:
+      path: ./config/crypto-config/peerOrganizations/org5.example.com/tlsca/tlsca.org5.example.com-cert.pem
+
+      
