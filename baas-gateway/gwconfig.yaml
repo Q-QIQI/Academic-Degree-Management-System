@@ -1,0 +1,8 @@
+# gateway引擎端口
+BaasGatewayPort: 6991
+# fabric引擎地址
+BaasFabricEngine: http://localhost:4991
+# db配置
+BaasGatewayDbconfig: ./dbconfig.yaml
+# 合约地址
+BaasConstractAddr: '0x7f740d7e400b94eab231e60666a4f49a4d2d38c0'
